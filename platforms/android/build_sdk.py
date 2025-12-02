@@ -131,7 +131,7 @@ class ABI:
             self.cmake_vars['ANDROID_TOOLCHAIN_NAME'] = toolchain
         else:
             self.cmake_vars['ANDROID_TOOLCHAIN'] = 'clang'
-            self.cmake_vars['ANDROID_STL'] = 'c++_shared'
+            self.cmake_vars['ANDROID_STL'] = 'c++_static'
         if ndk_api_level:
             self.cmake_vars['ANDROID_NATIVE_API_LEVEL'] = ndk_api_level
         self.cmake_vars.update(cmake_vars)
