@@ -115,7 +115,7 @@ def get_highest_version(subdirs):
     return max(subdirs, key=lambda dir: [int(comp) for comp in os.path.split(dir)[-1].split('.')])
 
 
-#===================================================================================================
+#=====================================================================================================
 
 class ABI:
     def __init__(self, platform_id, name, toolchain, ndk_api_level = None, cmake_vars = dict()):
