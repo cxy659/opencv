@@ -50,17 +50,16 @@ jobs:
             -DPYTHON3_LIBRARY=$(python3 -c "import sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
             ../
 
-      - name: Build OpenCV (all targets)
+      - name: Build OpenCV
         run: |
           cd build_android
           make -j$(nproc)
 
       - name: Verify libopencv_java4.so exists
-        run: |
-          find . -name "libopencv_java4.so" | xargs ls -la
+        run: ls -la ./build_android/jni/arm64-v8a/libopencv_java4.so
 
       - name: Upload libopencv_java4.so
         uses: actions/upload-artifact@v4
         with:
           name: libopencv_java4-arm64-static
-          path: build_android/lib/libopencv_java4.so
+          path: build_android/jni/arm64-v8a/libopencv_java4.so
